@@ -14,10 +14,10 @@ export default function Footer() {
       <div className="footer__column">
         <h4>Social media</h4>
         <ul>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Twitter</a></li>
-          <li><a href="#">YouTube</a></li>
+          <li><a href="https://www.instagram.com/">Instagram</a></li>
+          <li><a href="https://pl-pl.facebook.com/login/">Facebook</a></li>
+          <li><a href="https://x.com/%22%22">Twitter</a></li>
+          <li><a href="https://www.youtube.com/">YouTube</a></li>
         </ul>
       </div>
       <div className="footer__column">
