@@ -21,7 +21,7 @@
 
 .shop-header {
     width: 100%;
-    background-color: #d9d9d93e;
+    background-color: #d9d9d9b5;
     padding: 30px 0;
   }
   
@@ -103,14 +103,17 @@
   }
   
   .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    font-family: "Playfair", serif;
   }
   
   .product-card img {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
   }
   
   .product-card h3 {
@@ -167,28 +170,49 @@
     margin: 10px 0;
   }
 
+  .filters__button {
+    padding: 6px 15px;
+    background: #333333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .filters li {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filters li:hover {
+  color: #888;
+}
+
+.filters li.active-filter {
+  font-weight: bold;
+  color: #FFFFFF;
+  background-color: #333333;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
   /* Pagination */
 
   .pagination {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 40px 0;
-    gap: 10px;
+    margin-top: 30px;
   }
   
-  .pagination__button {
-    padding: 6px 14px;
-    background-color: transparent;
+  .pagination button {
+    margin: 0 5px;
+    padding: 8px 12px;
     border: none;
-    font-size: 14px;
-    color: #333;
+    background-color: #eee;
     cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: "Open Sans", sans-serif;
   }
   
-  .pagination__button:hover {
-    background-color: #000;
-    color: #fff;
+  .pagination button.active {
+    background-color: #333;
+    color: white;
   }

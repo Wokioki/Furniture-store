@@ -1,8 +1,13 @@
 import React from 'react';
 
 export default function Filters({ 
-    setSelectedCategory,
-    setSelectedColor,
+    selectedCategories,
+    toggleCategory,
+    selectedColors,
+    toggleColor,
+    maxPrice,
+    setMaxPrice,
+    resetFilters,
     products }) {
 
 
@@ -25,7 +30,9 @@ export default function Filters({
         <h4>Category</h4>
         <ul>
           {categories.map((cat) => (
-            <li key={cat} onClick={() => setSelectedCategory(cat)}>
+            <li key={cat} onClick={() => toggleCategory(cat)}
+            className={selectedCategories.includes(cat) ? 'active-filter' : ''}
+            >
               {cat} ({categoryCounts[cat] || 0})
             </li>
           ))}
@@ -36,7 +43,9 @@ export default function Filters({
         <h4>Color</h4>
         <ul>
           {colors.map((color) => (
-            <li key={color} onClick={() => setSelectedColor(color)}>
+            <li key={color} onClick={() => toggleColor(color)}
+            className={selectedColors.includes(color) ? 'active-filter' : ''}
+            >
               {color} ({colorCounts[color] || 0})
             </li>
           ))}
@@ -44,8 +53,19 @@ export default function Filters({
       </div>
   
       <div className="filters__block">
-        <h4>Price $1000 - $5000</h4>
-        <input type="range" min="100" max="800" className="filters__range" />
+        <h4>Price $0 - ${maxPrice}</h4>
+        <input
+          type="range"
+          min="0"
+          max={Math.max(...products.map(p => p.price))} 
+          value={maxPrice}
+          onChange={(e) => setMaxPrice(Number(e.target.value))}
+          className="filters__range"
+        />
+        <button className="filters__button"
+        onClick={resetFilters}>
+            Reset
+        </button>
       </div>
     </aside>
   );

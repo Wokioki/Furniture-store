@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default function Pagination() {
-  const pages = [1, 2, 3, 4, 5, 6, 7, 8];
-
+export default function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
     <div className="pagination">
-      {pages.map((page) => (
-        <button key={page} className="pagination__button">
-          {page}
+      {[...Array(totalPages)].map((_, i) => (
+        <button
+          key={i}
+          onClick={() => onPageChange(i + 1)}
+          className={currentPage === i + 1 ? 'active' : ''}
+        >
+          {i + 1}
         </button>
       ))}
-      <button className="pagination__button">›</button>
     </div>
   );
 }
