@@ -11,7 +11,7 @@ export default function Header() {
         <nav className="shop-header__nav">
           <Link to="/">Home</Link>
           <Link to="/shop">Shop</Link>
-          <Link to="#">About us</Link>
+          <Link to="/about">About us</Link>
           <Link to="#">Blog</Link>
         </nav>
         <button className="shop-header__cart">

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+
+
+/* About-head */
+
+.about-header {
+    width: 100%;
+    height: 1030px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #333333;
+    font-family: "Playfair", serif;
+  }
+  
+  .about-header__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+  }
+  
+  .about-header__logo {
+    width: 200px;
+    height: auto;
+    padding-left: 100px;
+  }
+
+  .about-header__nav {
+    margin-right: 350px;
+    }
+
+  .about-header__nav a {
+    font-family: "Playfair", serif;
+    margin-left: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333333;
+    transition: color 0.3s ease;
+  }
+  
+  .about-header__nav a:hover {
+    color: #666;
+  }
+  
+  .about-header__cart {
+    background: transparent;
+    border: none;
+  }
+
+  .cart{
+    width: 60px;
+    margin-right: 70px;
+  }
+  
+  .about-header__title {
+    text-align: center;
+    padding-bottom: 500px;
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Playfair', serif;
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  
+  /* About-video */
+
+  .about-video {
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .about-video__container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+/* about Characters */
+
+  .about-characters {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 60px 0px;
+    margin: 0 auto;
+  }
+  
+  .about-characters__text {
+    max-width: 400px;
+  }
+  
+  .about-characters__text h2 {
+    font-family: "Playfair", serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .about-characters__text p {
+    font-family: "Open Sans", sans-serif;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .about-characters__skills {
+    flex: 1;
+  }
+  
+  .skill {
+    margin-bottom: 30px;
+  }
+  
+  .skill__label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .skill__bar {
+    background: #ddd;
+    height: 2px;
+    width: 100%;
+    position: relative;
+  }
+  
+  .skill__progress {
+    background: #333;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
