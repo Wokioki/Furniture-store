@@ -3,6 +3,23 @@ const router = express.Router();
 const pool = require('../db');
 const bcrypt = require('bcrypt');
 
+router.get('/user/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const result = await pool.query('SELECT id, username, email, is_admin FROM users WHERE id = $1', [id]);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error('Error fetching user:', err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 router.post('/register', async (req, res) => {
   let { name, email, password } = req.body;
   email = email.toLowerCase();
@@ -39,7 +56,6 @@ router.post('/login', async (req, res) => {
     }
 
     const user = userResult.rows[0];
-
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {

@@ -17,10 +17,12 @@
   }
   
   .about-header__top {
+    max-width: 1440px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 60px;
+    padding: 30px 60px;  
   }
   
   .about-header__logo {

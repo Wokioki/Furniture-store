@@ -46,7 +46,7 @@
     cursor: pointer;
     border: none;
     background: #eee;
-    transition: background 0.3s;
+    transition: 0.3s;
   }
   
   .tab-buttons button.active {
@@ -76,7 +76,9 @@
     font-weight: bold;
     cursor: pointer;
   }
-
+  p{
+    font-family: "Open Sans", sans-serif; 
+  }
   .popup-message {
     margin-bottom: 15px;
     padding: 10px;
@@ -101,7 +103,6 @@
     align-items: center;
     text-align: center;
   }
-  
   .avatar-circle {
     width: 70px;
     height: 70px;

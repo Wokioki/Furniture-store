@@ -1,24 +1,24 @@
-const pool = require('./db');
+const pool = require('../db');
 
-async function createUsersTable() {
+async function createPostsTable() {
   const query = `
-    CREATE TABLE IF NOT EXISTS users (
-      id SERIAL PRIMARY KEY,                         
-      name VARCHAR(100) NOT NULL,                  
-      email VARCHAR(100) UNIQUE NOT NULL,         
-      password VARCHAR(255) NOT NULL,             
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+    CREATE TABLE IF NOT EXISTS posts (
+      id SERIAL PRIMARY KEY,
+      title TEXT NOT NULL,
+      content TEXT NOT NULL,
+      date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      image TEXT
     );
   `;
 
   try {
     await pool.query(query);
-    console.log("The 'users' table was successfully created.");
+    console.log("The 'posts' table was successfully created.");
   } catch (err) {
-    console.error("Error creating table:", err);
+    console.error("Error creating posts table:", err);
   } finally {
     pool.end();
   }
 }
 
-createUsersTable();
+createPostsTable();

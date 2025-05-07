@@ -5,13 +5,15 @@ import cart from '../../images/Home/cart.png';
 import account from '../../images/Logo/account.png';
 import { Link } from 'react-router-dom';
 
-export default function Header({ user, setUser }) {
+export default function BlogHeader({ user, setUser }) {
   const [showPopup, setShowPopup] = useState(false);
+
+  
   return (
-    <header className="shop-header">
-      <div className="shop-header__top">
-        <img src={logo} alt="FurniTrend Logo" className="shop-header__logo" />
-        <nav className="shop-header__nav">
+    <header className="header">
+      <div className="header__top">
+        <img src={logo} alt="FurniTrend Logo" className="header__logo" />
+        <nav className="header__nav">
           <Link to="/">Home</Link>
           <Link to="/shop">Shop</Link>
           <Link to="/about">About us</Link>

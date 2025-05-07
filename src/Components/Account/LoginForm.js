@@ -12,10 +12,13 @@ export default function LoginForm({ setMessage, setUser }) {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5000/api/login', form);
+      const res = await axios.post('http://localhost:5000/api/login', {
+        email: form.email.toLowerCase(),
+        password: form.password.trim()
+      });
       setMessage({ type: 'success', text: res.data.message });
       setUser(res.data.user);
-      localStorage.setItem('user', JSON.stringify(res.data.user));
+      localStorage.setItem('userId', res.data.user.id);
       setForm({ email: '', password: '' });
     } catch (err) {
       const msg = err.response?.data?.message || 'Login error';

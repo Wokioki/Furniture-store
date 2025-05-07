@@ -12,7 +12,11 @@ export default function RegisterForm({ setMessage }) {
       e.preventDefault();
   
       try {
-        const res = await axios.post('http://localhost:5000/api/register', form);
+        const res = await axios.post('http://localhost:5000/api/register', {
+          name: form.name,
+          email: form.email.toLowerCase(),
+          password: form.password
+        });
         setMessage({ type: 'success', text: res.data.message });
         setForm({ name: '', email: '', password: '' });
       } catch (err) {

@@ -6,10 +6,10 @@ import AboutVideo from './AboutVideo';
 import AboutCharacters from './AboutCharacters';
 import './aboutUs.css';
 
-export default function AboutUs() {
+export default function AboutUs({ user, setUser }) {
   return (
     <>
-        <AboutHead />
+        <AboutHead user={user} setUser={setUser}/>
       <main className="about-page">
         <Features />
         <AboutVideo />

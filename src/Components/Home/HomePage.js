@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../index.css';
 import Header from './Header';
 import Products from './Product';
 import CTA from './Offer';
@@ -8,10 +7,10 @@ import Articles from './Articles';
 import Quote from './Quote';
 import Footer from './Footer';
 
-function HomePage() {
+function HomePage({ user, setUser }) {
   return (
     <>
-      <Header />
+      <Header user={user} setUser={setUser} />
       <Products />
       <CTA />
       <Features />

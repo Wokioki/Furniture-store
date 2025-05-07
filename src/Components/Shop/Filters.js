@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 export default function Filters({ 
     selectedCategories,
@@ -8,11 +8,19 @@ export default function Filters({
     maxPrice,
     setMaxPrice,
     resetFilters,
-    products }) {
+    products,
+    maxAvailablePrice
+   }) {
 
 
   const categories = ["Ceiling", "Floor", "Led", "Modern", "Retro", "Wood"];
   const colors = ["Black", "Blue", "Red", "Green", "Yellow", "Grey"];
+  const rangeRef = useRef();
+
+  useEffect(() => {
+    const percent = (maxPrice / maxAvailablePrice) * 100;
+    rangeRef.current?.style.setProperty('--range-progress', `${percent}%`);
+  }, [maxPrice, maxAvailablePrice]);
 
     const categoryCounts = categories.reduce((acc, cat) => {
     acc[cat] = products.filter(p => p.category === cat).length;
@@ -56,14 +64,25 @@ export default function Filters({
         <h4>Price $0 - ${maxPrice}</h4>
         <input
           type="range"
+          ref={rangeRef}
           min="0"
-          max={Math.max(...products.map(p => p.price))} 
+          max={maxAvailablePrice}
           value={maxPrice}
-          onChange={(e) => setMaxPrice(Number(e.target.value))}
+          onChange={(e) => {
+            const value = Number(e.target.value);
+            setMaxPrice(value);
+      
+            const percent = (value / maxAvailablePrice) * 100;
+            e.target.style.setProperty('--range-progress', `${percent}%`);
+          }}
           className="filters__range"
         />
         <button className="filters__button"
-        onClick={resetFilters}>
+          onClick={() => {
+            resetFilters();
+            rangeRef.current?.style.setProperty('--range-progress', `100%`);
+          }}
+          >
             Reset
         </button>
       </div>

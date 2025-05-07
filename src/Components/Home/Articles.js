@@ -1,22 +1,29 @@
-import React from 'react';
-import office from '../../images/Home/office2.jpg';
-import kitchen from '../../images/Home/kitchen.jpg';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Articles() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/posts')
+      .then(res => {
+        const latestPosts = res.data.slice(0, 2);
+        setPosts(latestPosts);
+      })
+      .catch(err => console.error('Error fetching articles:', err));
+  }, []);
+
   return (
     <section className="articles">
-      <div className="article">
-        <img src={office} alt="Office interior" />
-        <p className="article__date">04 Apr. 2025 / by ai</p>
-        <h4>Your office should have only natural materials</h4>
-        <a href="#">read more</a>
-      </div>
-      <div className="article">
-        <img src={kitchen} alt="Kitchen interior" />
-        <p className="article__date">03 Sep. 2025 / by ai</p>
-        <h4>Your kitchen should have only natural materials</h4>
-        <a href="#">read more</a>
-      </div>
+      {posts.map(post => (
+        <div className="article" key={post.id}>
+          <img src={`/${post.image}`} alt={post.title} />
+          <p className="article__date">{new Date(post.date).toLocaleDateString()} / by ai</p>
+          <h4>{post.title}</h4>
+          <Link to={`/blog/${post.id}`}>read more</Link>
+        </div>
+      ))}
     </section>
   );
 }
