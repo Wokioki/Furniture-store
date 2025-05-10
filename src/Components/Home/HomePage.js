@@ -6,6 +6,7 @@ import Features from './Features';
 import Articles from './Articles';
 import Quote from './Quote';
 import Footer from './Footer';
+import '../../index.css';
 
 function HomePage({ user, setUser }) {
   return (

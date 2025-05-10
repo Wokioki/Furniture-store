@@ -144,25 +144,34 @@
 
 .product {
   width: 200px;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.product:hover {
+  transform: translateY(-4px);
 }
 
 .product img {
   width: 100%;
-  height: auto;
   border-radius: 8px;
 }
 
 .product h3 {
+  text-align: center;
   font-family: "Playfair", serif;
-  font-weight: 800; 
+  font-weight: 700;
   color: #333333;
   margin: 10px 0 5px;
   font-size: 18px;
 }
 
 .product p {
-  color: #888;
-  font-size: 14px;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 /* Offer */

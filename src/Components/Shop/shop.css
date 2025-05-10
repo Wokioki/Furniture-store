@@ -71,6 +71,20 @@
   border: none;
 }
 
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: crimson;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+.header__cart {
+  position: relative;
+}
 .header__account {
   background: transparent;
   border: none;
@@ -127,6 +141,12 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
   }
   
   .product-card img {
@@ -272,4 +292,179 @@
   .pagination button.active {
     background-color: #333;
     color: white;
+  }
+
+
+  /* ProductDetails */
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .product-link h3 {
+    margin-top: 12px;
+    font-family: "Playfair", serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .product-link p {
+    font-size: 14px;
+    color: #555;
+    font-family: "Open Sans", sans-serif;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .product-card:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+  }
+
+  .product-details {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .product-main {
+    display: flex;
+    gap: 50px;
+    margin-bottom: 60px;
+    align-items: flex-start;
+  }
+  
+  .product-image-large img {
+    width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-info h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-family: 'Playfair', serif;
+  }
+  
+  .product-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .product-desc {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+  
+  .product-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .product-actions button,
+  .product-actions input {
+    padding: 10px 14px;
+    font-size: 16px;
+  }
+  
+  .add-to-cart {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .related-products {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .related-card {
+    width: 200px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .related-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .related-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .related-card p {
+    margin-top: 10px;
+    font-weight: 600;
+  }
+  
+  .related-card span {
+    color: #555;
+  }
+
+  .back-button {
+    margin: 40px 0 20px 0;
+  }
+  
+  .back-button a {
+    text-decoration: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    transition: 0.2s ease;
+  }
+  
+  .back-button a:hover {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  /* login */
+  .login-btn {
+    background: none;
+    border: none;
+    color: #0077cc;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .login-btn:hover {
+    color: #004c99;
   }

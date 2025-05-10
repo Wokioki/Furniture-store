@@ -5,6 +5,7 @@ import ProductGrid from './ProductGrid';
 import Pagination from './Pagination';
 import Filters from './Filters';
 import Footer from '../Home/Footer';
+import './shop.css'
 
 export default function ShopPage({ user, setUser }) {
   const [products, setProducts] = useState([]);
