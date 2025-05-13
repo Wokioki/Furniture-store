@@ -4,12 +4,14 @@ import axios from 'axios';
 
 export default function Articles() {
   const [posts, setPosts] = useState([]);
-
+  
   useEffect(() => {
     axios.get('/api/posts')
       .then(res => {
-        const latestPosts = res.data.slice(0, 2);
-        setPosts(latestPosts);
+        if (Array.isArray(res.data)) {
+          const latestPosts = res.data.slice(0, 2);
+          setPosts(latestPosts);
+        }
       })
       .catch(err => console.error('Error fetching articles:', err));
   }, []);

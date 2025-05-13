@@ -7,7 +7,13 @@ export default function Products() {
 
   useEffect(() => {
     axios.get('/api/products')
-      .then(res => setProducts(res.data.slice(0, 3))) 
+      .then(res => {
+        if (Array.isArray(res.data)) {
+          setProducts(res.data.slice(0, 3));
+        } else {
+          console.error('API returned not an array:', res.data);
+        }
+      })
       .catch(err => console.error('Error fetching featured products:', err));
   }, []);
 
