@@ -12,7 +12,7 @@ export default function AccountPopup({ onClose, user, setUser }) {
     const userId = localStorage.getItem('userId');
 
     if (userId) {
-      axios.get(`http://localhost:5000/api/user/${userId}`)
+      axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`)
         .then(res => setUser(res.data))
         .catch(() => {
           setUser(null);

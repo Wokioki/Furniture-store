@@ -10,7 +10,7 @@ export default function BlogPosts({ user }) {
   }, []);
 
   const fetchPosts = () => {
-    axios.get('/api/posts')
+    axios.get(`${process.env.REACT_APP_API_URL}/posts`)
       .then(res => setPosts(res.data))
       .catch(err => console.error("Error fetching posts:", err));
   };
@@ -18,7 +18,7 @@ export default function BlogPosts({ user }) {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this post?')) return;
     try {
-      await axios.delete(`/api/posts/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/posts/${id}`);
       fetchPosts();
     } catch (err) {
       console.error('Delete error:', err);

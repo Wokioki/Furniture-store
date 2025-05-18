@@ -8,7 +8,7 @@ export default function BlogDetails() {
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/posts/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/posts/${id}`)
       .then(res => setPost(res.data))
       .catch(() => setPost(null));
     window.scrollTo(0, 0);

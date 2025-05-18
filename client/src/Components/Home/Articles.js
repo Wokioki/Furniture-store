@@ -6,7 +6,7 @@ export default function Articles() {
   const [posts, setPosts] = useState([]);
   
   useEffect(() => {
-    axios.get('/api/posts')
+    axios.get(`${process.env.REACT_APP_API_URL}/posts`)
       .then(res => {
         if (Array.isArray(res.data)) {
           const latestPosts = res.data.slice(0, 2);

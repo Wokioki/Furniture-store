@@ -12,7 +12,7 @@ export default function RegisterForm({ setMessage }) {
       e.preventDefault();
   
       try {
-        const res = await axios.post('http://localhost:5000/api/register', {
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/register`, {
           name: form.name,
           email: form.email.toLowerCase(),
           password: form.password

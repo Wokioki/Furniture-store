@@ -11,7 +11,7 @@ export default function AddPost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/posts', { title, content, image });
+      await axios.post(`${process.env.REACT_APP_API_URL}/posts`, { title, content, image });
       navigate('/blog');
     } catch (err) {
       console.error('Error adding post:', err);

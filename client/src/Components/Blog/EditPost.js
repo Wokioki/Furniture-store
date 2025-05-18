@@ -18,7 +18,7 @@ export default function EditPost({ user }) {
   const [image, setImage] = useState('');
 
   useEffect(() => {
-    axios.get(`/api/posts/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/posts/${id}`)
       .then(res => {
         const post = res.data;
         setTitle(post.title);
@@ -34,7 +34,7 @@ export default function EditPost({ user }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/posts/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/posts/${id}`, {
         title,
         content,
         image

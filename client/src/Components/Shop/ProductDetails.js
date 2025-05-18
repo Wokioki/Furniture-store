@@ -23,7 +23,7 @@ export default function ProductDetails() {
       navigate('/shop');
       return;
     }
-    axios.get(`/api/products/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         fetchRelated(res.data);
@@ -32,7 +32,7 @@ export default function ProductDetails() {
   }, [id, navigate]);
 
   const fetchRelated = (currentProduct) => {
-    axios.get('/api/products')
+    axios.get(`${process.env.REACT_APP_API_URL}/products`)
       .then(res => {
         const filtered = res.data
           .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)

@@ -8,7 +8,7 @@ export default function EditProduct() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    axios.get(`/api/products/${id}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/products/${id}`)
       .then(res => setProduct(res.data))
       .catch(() => alert('Product not found'));
   }, [id]);
@@ -20,7 +20,7 @@ export default function EditProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`/api/products/${id}`, product);
+      await axios.put(`${process.env.REACT_APP_API_URL}/products/${id}`, product);
       navigate('/shop');
     } catch {
       alert('Error updating product');

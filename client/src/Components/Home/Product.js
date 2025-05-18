@@ -6,7 +6,7 @@ export default function Products() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/products')
+    axios.get(`${process.env.REACT_APP_API_URL}/products`)
       .then(res => {
         if (Array.isArray(res.data)) {
           setProducts(res.data.slice(0, 3));

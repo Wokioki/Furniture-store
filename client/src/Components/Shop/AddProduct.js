@@ -13,7 +13,7 @@ export default function AddProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/products', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/products`, {
         title,
         price: Number(price),
         image,

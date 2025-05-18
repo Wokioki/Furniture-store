@@ -17,7 +17,7 @@ export default function ShopPage({ user, setUser }) {
 
   // Download products from the database
   useEffect(() => {
-    axios.get('/api/products')
+    axios.get(`${process.env.REACT_APP_API_URL}/products`)
       .then(res => {
         setProducts(res.data);
         const max = Math.max(...res.data.map(p => p.price));
@@ -43,8 +43,8 @@ export default function ShopPage({ user, setUser }) {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`/api/products/${id}`);
-      const res = await axios.get('/api/products');
+      await axios.delete(`${process.env.REACT_APP_API_URL}/products/${id}`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
       setProducts(res.data);
     } catch (err) {
       console.error('Delete error:', err);
