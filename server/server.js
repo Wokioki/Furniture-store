@@ -8,7 +8,7 @@ const productRoutes = require('./routes/products');
 const postRoutes = require('./routes/posts');
 
 app.use(cors({
-origin: ['https://furniture-store-git-main-wokiokis-projects.vercel.app'],
+origin: ['https://furniture-store-wokiokis-projects.vercel.app'],
   credentials: true
 }));
 
