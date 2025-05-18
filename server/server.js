@@ -8,7 +8,7 @@ const productRoutes = require('./routes/products');
 const postRoutes = require('./routes/posts');
 
 app.use(cors({
-  origin: 'https://furniture-store-mauve-seven.vercel.app',
+  origin: process.env.CLIENT_URL,
   credentials: true
 }));
 
